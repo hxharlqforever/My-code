@@ -1,0 +1,32 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<script type="text/javascript">
+	
+	var nameAndValue=function(url){
+		url=url.split('?')[1];//取网址？后面的部分
+		var group=url.split('&');//以&分割为数组，
+		//console.log(group);
+		var res={};
+		for (var i = 0; i <group.length; i++) {
+			start=group[i].indexOf("=");
+			if (start!=-1) {
+				name=group[i].slice(0,start);
+				value=group[i].slice(start+1,group[i].length);
+				res[name]=value;
+			}else{
+				res[group[i]]=undefined;
+			}
+		}
+		console.log(res);
+	}
+
+    var url='https://s.taobao.com/search?spm=a21bo.2017.201867-main.26.5af911d98cNjFZ&ie=utf8&initiative_id=staobaoz_20180724&stats_click=search_radio_all%3A1&js=1&imgfile=&q=%E7%94%9F%E9%B2%9C&suggest=history_1&_input_charset=utf-8&wq=%E7%94%9F%E9%B2%9C&suggest_query=%E7%94%9F%E9%B2%9C&source=suggest'
+    nameAndValue(url);
+</script>
+</body>
+</html>
+

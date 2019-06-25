@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<script type="text/javascript">
+//遍历1-100之间的数
+// for(var i=1;i<100;i++){
+// 	//看看一每个数是不是质数，除以1-本身之间的所有数，整除次数为2
+// 	for(var j=1;j<=i;j++){
+// 		if(i%j==0){
+// 			count++;
+// 		}
+// 	}
+// 	//输出该质数
+// 	if(count==2){
+// 		document.write(i+",");
+// 	}
+// 	//在下一次循环之前，将Count清零
+// 	count=0;
+// }
+//第二种方法：Math.sqrt()，平方根,拿100来说，10*10=100，所以10以上和10以下成对的，只需要除平方根以下的数就可以验证，第二种方法编程为：
+
+
+var count=0;
+//遍历1-100之间的数
+for(var i=1;i<100;i++){
+	//看看一每个数是不是质数，除以平方根以下的所有数，整除次数为1
+	for(var j=1;j<=Math.sqrt(i);j++){
+		if(i%j==0){
+			count++;
+		}
+	}
+	//输出该质数
+	if(count==1){
+
+		console.log(i);
+	}
+	//在下一次循环之前，将Count清零
+	count=0;
+}
+</script>
+</body>
+</html>

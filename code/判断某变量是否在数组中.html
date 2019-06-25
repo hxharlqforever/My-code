@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<script type="text/javascript">
+	//使用for循环遍历
+	//  var isInArray=function(arr,value){
+	// 	var len=arr.length;
+	// 	for (var i = 0; i < len; i++) {
+	// 		if (arr[i]===value) {
+	// 			console.log("在数组中");
+	// 		}else{
+	// 			console.log("不在");
+	// 		}
+	// 	}
+	// }
+	// isInArray([1,2,3],4)
+
+
+	//使用indexof判断元素是否在数组中
+	var isInArray=function(arr,value){
+		if (arr.indexOf&&typeof(arr.indexOf)=="function") {
+			var index=arr.indexOf(value);
+			if (index>0) {
+				console.log("在数组中");
+			}else{
+				console.log("不在！！！");
+			}
+		}
+	}
+</script>
+</body>
+</html>

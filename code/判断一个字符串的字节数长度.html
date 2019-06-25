@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+//    function bytesLen(target) {
+//        var count=0;
+//        for(var i=0;i<target.length;i++){
+//            if (target.charCodeAt(i)<=255){
+//                count++;           //如果是字母或空格等基础字符，+1
+//            }else if (target.charCodeAt(i)>255){
+//                count+2;           //如果是汉字，两个字节，+2
+//            }
+//        }
+//        console.log(count);
+//
+//    }
+
+
+//第二章方法，优化算法
+function bytesLen(target) {
+    var count=target.length;//先等于字符串长度
+    var len=target.length;
+    for(var i=0;i<len;i++) {
+        if (target.charCodeAt(i) > 255) {
+            count++;//直接判断如果是汉字，则+1
+
+        }
+    }
+    console.log(count);
+
+}
+</script>
+</body>
+</html>

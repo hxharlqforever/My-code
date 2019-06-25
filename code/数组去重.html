@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<script type="text/javascript">
+	//第一种方法：
+	//定义一个数组，遍历原数组，若遍历元素在新数组不存在就添加到数组中，反之则忽略
+	 function uniqueArray(arr){
+	 	res=[];
+	 	for (var i = 0; i <arr.length; i++) {
+			var repeat=false;
+	 		for(j=0 ; j < res.length; j++){
+			if (arr[i]===res[j]) {//遍历新数组，看元素在不在里面
+				repeat=true;
+	 				break;//若在里面，退出
+				}
+		}
+			if (!repeat) {
+ 			res.push(arr[i]);
+	 		}
+
+		}
+ 	return res
+		
+	 }
+	 var ar=[1,1,2,2,3,4,4,5];
+	 document.write(uniqueArray(ar))
+
+
+
+	//第二种方法：先排序再去重
+	//先对数组排序，在定义一个新的数组，遍历排序后的数组，若排序后铺的数组不等于新数组的最后一个元素，则添加。
+	
+
+	//第三种方法：对象去重
+	//利用对象的属性。遍历数组，若数组原素不是对象的属性，则添加
+	// function uniqueArray(arr){
+	// 	var res=[];
+	// 	var temp={};
+	// 	for(i=0;i<arr.length;i++){
+	// 		if (!temp[arr[i]]) {
+	// 			res.push(arr[i]);
+	// 			temp[arr[i]]=1;
+	// 		}
+	// 	}
+	// 	return res
+	// }
+
+
+	//第四种方法：filter，indexof方法：
+	//通过filter筛选出去重后的数组。若indexof方法放在该元素之后再查不到该元素的位置，则表示该元素不存在，符合要求
+	// function uniqueArray(arr){
+	// 	return arr.filter(function(item,index,array){
+	// 		return array.indexOf(item,index+1)===-1;
+	// 	})
+	// }
+
+
+
+	//第五种方法：ES6，Set方法
+	//利用ES6中Set不包含重复元素的思想，为数组创建Set对象，再将set对象转化为数组
+	function uniqueArray(arr){
+		//set:也是一个集合，可以存放任何数据，并且是唯一的
+		return Array.from(new Set(arr));
+	}
+
+		
+	var arr=[1,2,3,3,4,5,5,5,6,5];
+	console.log(uniqueArray(arr));
+	
+	//console.log();
+</script>
+</body>
+</html>

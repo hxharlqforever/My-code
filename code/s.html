@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+<i class="fa fa-camera-retro fa-lg">11</i> 
+<i class="fa fa-camera-retro fa-2x">11</i> 
+<i class="fa fa-camera-retro fa-3x">11</i> 
+<i class="fa fa-camera-retro fa-5x">11</i> 
+</body>
+<script>
+function makeClosures(arr, fn) {
+    var funcs = [];
+    for(var i=0; i<arr.length; ++i){
+        (function(v){
+            funcs[v] = function(){
+                return fn.call(null,arr[v]);
+            }
+        })(i);
+    }
+    return funcs;
+}
+console.log(makeClosures([20,1],function(x){return x*x;}))
+</script>
+</html>
